@@ -1,0 +1,113 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("\n *******Ticketing Application******** \n");
+		Scanner scr=new Scanner(System.in);
+		int test;
+		ArrayList f_no=new ArrayList();//this is to ADD flight no's to the list
+		ArrayList f_name=new ArrayList();//this is to Airlines name to the list
+		ArrayList f_dest=new ArrayList();//this is to add destination to the list
+		ArrayList f_source=new ArrayList();//this is to ADD source to the list
+		ArrayList f_departure=new ArrayList();//this is to ADD departure no's to the list
+		ArrayList f_arrival=new ArrayList();//this is to ADD arrival no's to the list
+		do
+		{
+		System.out.println("Enter the operation to be performed\n");
+		System.out.println("Type 1 to enter the data\n");
+		System.out.println("Type 2 to retrive the data\n");
+		System.out.println("Type 3 to perform operations on data\n");
+		int num=scr.nextInt();
+		if(num==1)
+		{
+		 System.out.println("Enter a unique flight number");	
+		 String no=scr.next();
+		 System.out.println("Enter a unique flight name");
+		 String name=scr.next();
+		 System.out.println("Enter the flight destination");
+		 String dest=scr.next();
+		 System.out.println("Enter the flight sorce");
+		 String source=scr.next();
+		 System.out.println("Enter the flight departure");
+		 Date dept=new Date();
+		 dept.setDate(scr.nextInt());
+		 System.out.println("Enter the flight arrival");
+		 Date arrival=new Date();
+		 arrival.setDate(scr.nextInt());
+		 if(f_no.contains(no))
+		    {
+		        System.out.println("the id is already present in the Data Base");
+		    }
+		 else
+            {	
+		        f_no.add(no);
+		        f_name.add(name);
+		        f_dest.add(dest);
+		        f_source.add(source);
+		        f_departure.add(dept);
+		        f_arrival.add(arrival);
+            }
+		}
+		else if(num==2)
+		{
+		    System.out.println("Flightnumber\tAirlines Name\tDestination\tsource\tDeparture\tarrival");
+		    for(int o=0;o<f_no.size();o++)
+		    {
+		    System.out.println(f_no.get(o));
+		    System.out.print("\t"+f_name.get(o));
+		    System.out.print("\t"+f_dest.get(o));
+		    System.out.print("\t"+f_source.get(o));
+		    System.out.print("\t"+f_departure.get(o));
+		    System.out.print("\t"+f_arrival.get(o));
+		    }
+		}
+		else if(num==3)
+		{
+		    System.out.println("\nEnter your request");
+		    System.out.println("1.Destination");
+		    System.out.println("2.Source");
+		    System.out.println("3.arrival/departure time");
+		    int val=scr.nextInt();
+		    if(val==1)
+		    {
+		        String r_dest=scr.next();
+		        for(int o=0;o<f_no.size();o++)
+		        {
+		            if(f_dest.get(o)==r_dest)//Searching for required Destination
+		            {
+		                System.out.println(f_no.get(o));
+		                System.out.print("\t"+f_name.get(o));
+		                System.out.print("\t"+f_dest.get(o));
+		                System.out.print("\t"+f_source.get(o));
+		                System.out.print("\t"+f_departure.get(o));
+		                System.out.print("\t"+f_arrival.get(o));
+		            }
+		           }
+		       }
+		       else if(val==2)
+		    {
+		        String r_source=scr.next();
+		        for(int o=0;o<f_no.size();o++)
+		        {
+		            if(f_source.get(o)==r_source)//Searching for the required source
+		            {
+		                System.out.println(f_no.get(o));
+		                System.out.print("\t"+f_name.get(o));
+		                System.out.print("\t"+f_dest.get(o));
+		                System.out.print("\t"+f_source.get(o));
+		                System.out.print("\t"+f_departure.get(o));
+		                System.out.print("\t"+f_arrival.get(o));
+		            }
+		           }
+		        }
+		    }
+		else
+		{
+		    System.out.println("Do not enter other than 1 or 2");
+		}
+		System.out.println("\ndo you wnat to run again... then enter 1 else enter any other number");
+		test=scr.nextInt();
+		}
+		while(test==1);
+	}
+}
